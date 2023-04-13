@@ -1,38 +1,85 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rectangle{
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background: #DDDDDD;
 }
 
-.App-link {
-  color: #61dafb;
+.box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+  box-sizing: border-box;
+  width: 500px;
+  height: 205px;
+  background: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-radius: 16px;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2{
+  
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  color: #000000
+}
+
+h4{
+  padding: 15px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+
+}
+
+input{
+  box-sizing: border-box;
+  width: 452px;
+  height: 32px;
+  background: #FFFFFF;
+  border: 1px solid #777777;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+button{
+  margin-top: 10px;
+  color: #FFFFFF;
+  width: 111px;
+  height: 32px;
+  background: #7695EC;
+  border-radius: 8px;
+  margin-left: 345px;
+  cursor: pointer;
+
+}
+
+button:disabled{
+  background: #777777;
+  cursor: no-drop;
 }
