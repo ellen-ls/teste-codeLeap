@@ -2,18 +2,40 @@ import { useState } from "react"
 
 const Users = ()=>{
 
-  const [title, setTitle] = useState("")
   
+  let {values, setValues} = useState(forms)
 
-  const onInput = (e)=> setTitle(e.target.value)
+  const forms = {
+    title:'',
+    content: ''
+  }
+
+  const formManipulator = (e) =>{
+    e.preventDefault()
+    addEedit(values)
+
+    let {title, value} = e.target
+
+    setValues({
+      ...values,
+      [title]:value
+
+    })
+
+  }
+
+  const onInput = (e)=> setValues(e.target.value)
   const handleLogout = ()=>{
     localStorage.clear()
     window.location.reload()
+    
+  }
+
+  const addEedit = obj =>{
+
   }
 
   
-
- 
  return(
   <div className="div">
     <div className="body">
@@ -23,20 +45,21 @@ const Users = ()=>{
   </div>
   
   
-    <div className="box-2">
+    <form className="box-2" addEedit={addEedit} onSubmit={formManipulator}>
 
       <h3>What's on your mind?</h3>
       <p>Title</p>
       <input 
-        value={title} 
+        value={values} 
         onInput={onInput} 
-        onChange={(event)=>setTitle(event.target.value)}></input>
+        onChange={formManipulator}></input>
       <p>Content</p>
       <input className="texto"
+      onChange={formManipulator}
       ></input>
-      <button disabled={!title}>Create</button>
+      <button disabled={!values} onChange={formManipulator}>Create</button>
 
-    </div>
+    </form>
    </div>
    </div>
   
