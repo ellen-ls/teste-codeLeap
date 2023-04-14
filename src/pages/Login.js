@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Users from "./Users";
 
 
 const Login = ()=>{
 
-    const navigate = useNavigate()
+    
     const [login, setLogin] = useState("")
     const [logged, setLogged] = useState(false)
     
@@ -12,23 +13,16 @@ const Login = ()=>{
     const onInput = (e)=> setLogin(e.target.value)
 
       const handleSubmit = (e)=>{
-        e.preventDefault()
-
-        navigate('/user')
-        const data = {login}
-        localStorage.setItem('user', JSON.stringify(data))
+       
+        localStorage.setItem('user', JSON.stringify(login))
         setLogged(true)
-        setLogin('')
+       
 
   
     }
 
-    const handleLogout = ()=>{
-        localStorage.removeItem('user')
-        setLogged(false)
-    }
-
- return(
+    return(
+      (logged ? <Users/>:
       <form className="rectangle" onSubmit={handleSubmit}>
         <div className="box">
         <h2>Welcome to CodeLeap network!</h2>
@@ -47,7 +41,7 @@ const Login = ()=>{
       </form>
    
     )
-
+    )
 
 }
 export default Login
