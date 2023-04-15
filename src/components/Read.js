@@ -8,7 +8,7 @@ const Read=()=>{
     useEffect(() => {
         axios.get("https://dev.codeleap.co.uk/careers/?limit=10")
           .then((response) => {
-            setGetText(console.log(response.data.results))
+            setGetText(response.data.results)
           })
     
       }, [])
@@ -19,8 +19,13 @@ const Read=()=>{
       <div>
       {getText && getText.map((text, index)=>{
         return(
-          <div key={index}>
-            {text.title}
+          <div key={index} className="box-2">
+            <div className="header">{text.title}</div>
+            <div className="name-user">
+            {text.username}
+            {text.created_datetime}
+            </div>
+            <div>{text.content}</div>
           </div>
 
         )

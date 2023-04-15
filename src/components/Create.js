@@ -38,36 +38,36 @@ const Create = () => {
 
   return (
     <div className="div">
-      <div className="body">
-        <div className="header">
-          <p>CodeLeap network</p>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-
-
-        <form className="box-2" onSubmit={handleSubmit}>
-
+      <div className="header">
+      <p>CodeLeap network</p>
+      <button onClick={handleLogout}>Logout</button>
+      </div>
+      <form className="box-2" onSubmit={handleSubmit}>
+               
           <h3>What's on your mind?</h3>
+          <div>
           <p>Title</p>
-          <input
+          <input className="input-title"
             value={title}
             onInput={onInput}
-            onChange={(e) => setTitle(e.target.value)}></input>
+            onChange={(e) => setTitle(e.target.value)}>
+          </input>
+          </div>
+          <div>
           <p>Content</p>
-          <input className="texto"
+          <input className="input-content"
            value={content}
             onChange={(e) => setContent(e.target.value)}>
           </input>
-
+          </div>
           <button disabled={!content}>Create</button>
 
         </form>
-        <Read>
-        
-        </Read>
-       
+        <div>
+        <Read/>
+        </div> 
       </div>
-    </div>
+    
 
   )
 }

@@ -2,12 +2,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
+
 }
 
 .App{
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  background: #DDDDDD;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: normal;
+  
   
 }
 
@@ -39,8 +46,6 @@
 
 h2{
   
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-style: normal;
   font-weight: 700;
   font-size: 22px;
   line-height: 26px;
@@ -49,8 +54,6 @@ h2{
 
 h4{
   padding: 15px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
@@ -88,71 +91,105 @@ button:disabled{
 
 /* ---- Usuario ---*/
 
+.div{
+  
+  background-color: #FFFFFF;
+  height: 80%;
+  overflow: hidden;
+  overflow-y: scroll;
+  width: 50%;
+  border-radius: 8px;
+ 
+}
+
 .header{
   display: flex;
-  padding: 10px;
-  width: 550px;
-  height: 80px;
-  background: #7695EC;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 26px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #7695EC;
+  height: 40px;
+  padding: 15px;
+  border-radius: 8px 8px 0 0;
+  font-size: 16px;
   color: #FFFFFF;
-  border-radius:8px 8px 0 0;
-  
+
 }
+
+.header button{
+  width: 80px;
+  height: 25px;
+  background: #7695EC;
+  border: none;
+  border-radius: 8px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 2px;
+  margin-left: 50px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 
 .box-2{
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  width: 500px;
-  height: 205px;
-  background: #FFFFFF;
-  border: 1px solid #CCCCCC;
-  border-radius: 16px;
-  margin:50px;
-  padding: 15px;
-  
+ height: 40%;
+ margin:40px;
+ width: 80%;
+ border: 1px solid #999999;
+ border-radius: 8px;
+ padding-bottom: 20px;
 }
 
-.div{
+.box-2 h2{
   display: flex;
-  width: 100%;
-  height: 100vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #CCCCCC;
-  
-}
+  font-size: 16px; 
+  padding:15px;
 
-.body{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 550px;
-  height: 50%;
-  background: #FFFFFF;
-  
-  
-}
-
-.box-2 h3{
-  display: flex;
 }
 
 .box-2 p{
   display: flex;
-  padding-left: 30px;
-  
+  font-size: 12px;
+  padding-left: 15px;
 }
-.texto{
+
+.input-title{
   width: 95%;
-  
+  margin: 5px;
+  padding: 5px;
+}
+
+.input-content{
+ 
+  padding-left: 5px;
+  width: 95%;
+  height: 50px;
+  margin: 5px;
+
+}
+
+.box-2 button{
+  width: 80px;
+  height: 25px;
+  background: #7695EC;
+  border: none;
+  border-radius: 8px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 2px;
+  margin-left: 220px;
+}
+
+.box-2 button:disabled{
+  background-color: #777777;
+}
+
+.name-user{
+  display: flex;
+  justify-content: space-between;
+  color:#777777;
+  padding: 10px 0 25px 0px;
 }
 
 

@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Create from './components/Create';
 import Read from './components/Read';
@@ -11,8 +11,8 @@ import Delete from './components/Delete';
 function App() {
  
    return (
-    
-<BrowserRouter>
+<div className='App'>   
+<Router>
 <Routes>
   <Route path={'/'} element={<Login/>}></Route>
   <Route path={'/create'} component={Create}></Route>
@@ -20,8 +20,8 @@ function App() {
   <Route path={'/update'} component={Update}></Route>
   <Route path={'/delete'} component={Delete}></Route>
 </Routes>
-</BrowserRouter>
-      
+</Router>
+</div>     
     
   );
 }
