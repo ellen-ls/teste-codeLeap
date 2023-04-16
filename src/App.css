@@ -151,6 +151,7 @@ button:disabled{
   display: flex;
   font-size: 12px;
   padding-left: 15px;
+
 }
 
 .input-title{
@@ -190,6 +191,8 @@ button:disabled{
   justify-content: space-between;
   color:#777777;
   padding: 10px 0 25px 0px;
+  overflow: hidden;
+  word-break: break-all;
 }
 
 

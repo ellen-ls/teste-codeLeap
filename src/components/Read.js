@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 const Read=()=>{
     const [getText, setGetText] = useState([])
 
-
+       
     useEffect(() => {
         axios.get("https://dev.codeleap.co.uk/careers/?limit=10")
           .then((response) => {
@@ -22,8 +22,8 @@ const Read=()=>{
           <div key={index} className="box-2">
             <div className="header">{text.title}</div>
             <div className="name-user">
-            {text.username}
-            {text.created_datetime}
+            <p>@{text.username}</p>
+            <p>{new Date(text.created_datetime).toLocaleTimeString('pt-BR')}</p>
             </div>
             <div>{text.content}</div>
           </div>
