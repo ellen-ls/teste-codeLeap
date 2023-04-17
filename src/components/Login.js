@@ -13,7 +13,7 @@ const Login = ()=>{
 
       const handleSubmit = (e)=>{
        
-        localStorage.setItem('user', JSON.stringify(login))
+        localStorage.setItem('user', JSON.stringify(login).replace(/"/g, ''))
         setLogged(true)
    
     }

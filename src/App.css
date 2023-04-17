@@ -169,6 +169,12 @@ button:disabled{
 
 }
 
+.content{
+ font-size: 15px;
+ font-style: normal;
+
+}
+
 .box-2 button{
   width: 80px;
   height: 25px;
@@ -190,10 +196,13 @@ button:disabled{
   display: flex;
   justify-content: space-between;
   color:#777777;
-  padding: 10px 0 25px 0px;
+  padding: 10px;
   overflow: hidden;
   word-break: break-all;
 }
 
+.fa{
+  margin-left: 300px;
+}
 
 

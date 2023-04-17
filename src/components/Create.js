@@ -3,12 +3,13 @@ import React, { useEffect } from "react"
 import { useState } from "react"
 import Read from "./Read"
 
+
 const Create = () => {
 
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
   const [username, setUsername] = useState(localStorage.getItem('user'))
-  const [getText, setGetText] = useState([])
+  
 
   const handleSubmit = async(e)=>{
     e.preventDefault()
