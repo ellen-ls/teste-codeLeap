@@ -7,6 +7,14 @@ const Read=()=>{
     const [getText, setGetText] = useState([])
     const [update, setUpdate] = useState([])
 
+  const handleCreate =  () => {
+        axios.get("https://dev.codeleap.co.uk/careers/")
+          .then((response) => {
+            setGetText(response.data.results)
+          })
+    
+      }
+
   const handleUpdate = (id) =>{
    axios.patch(`https://dev.codeleap.co.uk/careers/${id}/`)
    .then(()=>{
@@ -15,23 +23,19 @@ const Read=()=>{
    
   }   
 
-
   const handleDelete = (id) =>{
     axios.delete(`https://dev.codeleap.co.uk/careers/${id}/`)
     .then(()=>{
-      setGetText()
+      handleCreate()
     })
     }
-       
-    useEffect(() => {
-        axios.get("https://dev.codeleap.co.uk/careers/")
-          .then((response) => {
-            setGetText(response.data.results)
-          })
-    
-      }, [])
 
-      return(
+    useEffect(()=>{
+      handleCreate()
+
+    },[getText])
+       
+     return(
      <div>
       
       <div>
@@ -40,7 +44,7 @@ const Read=()=>{
           <div key={index} className="box-2">
             <div className="header">{text.title}
             <button className="fa" onClick={()=>handleUpdate(text.id)}><FaEdit/></button>
-            <button className="fa" onClick={()=>handleDelete(text.id)}><FaTrash/></button>            
+            <button className="fa" onClick={()=> {if(window.confirm('Are you sure you want to delete this item?')){handleDelete(text.id)}}}><FaTrash/></button>            
            </div>
            <div className="name-user">
             <p>@{text.username}</p>
