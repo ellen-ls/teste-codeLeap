@@ -6,7 +6,7 @@
 
 }
 
-.App{
+.login{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,53 +18,41 @@
   
 }
 
-.rectangle{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-  left: 0;
-  top: 0;
-  background: #DDDDDD;
-}
-
-.box{
+.login__form{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 80px;
   box-sizing: border-box;
-  width: 500px;
-  height: 205px;
+  width: 30rem;
+  height: 15rem;
   background: #FFFFFF;
   border: 1px solid #CCCCCC;
   border-radius: 16px;
-  
 }
+
 
 h2{
   
   font-weight: 700;
-  font-size: 22px;
-  line-height: 26px;
+  font-size: 1.5rem;
+  line-height: 2rem;
   color: #000000
 }
 
 h4{
   padding: 15px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 19px;
   color: #000000;
 
 }
 
-input{
+.username{
   box-sizing: border-box;
-  width: 452px;
-  height: 32px;
+  width: 80%;
+  height: 2rem;
   background: #FFFFFF;
   border: 1px solid #777777;
   border-radius: 8px;
@@ -74,11 +62,11 @@ input{
 button{
   margin-top: 10px;
   color: #FFFFFF;
-  width: 111px;
-  height: 32px;
+  width: 6rem;
+  height: 2rem;
   background: #7695EC;
   border-radius: 8px;
-  margin-left: 345px;
+  margin-left: 10rem;
   cursor: pointer;
   border: none;
 
@@ -91,25 +79,25 @@ button:disabled{
 
 /* ---- Usuario ---*/
 
-.div{
-  
-  background-color: #FFFFFF;
-  height: 80%;
-  overflow: hidden;
-  overflow-y: scroll;
-  width: 50%;
-  border-radius: 8px;
- 
-}
 
 .header{
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #7695EC;
-  height: 40px;
+  height: 45px;
   padding: 15px;
-  border-radius: 8px 8px 0 0;
+  font-size: 16px;
+  color: #FFFFFF;
+
+}
+
+.header-two{
+  display: flex;
+  justify-content: space-between;
+  background-color: #7695EC;
+  height: 45px;
+  padding: 15px;
   font-size: 16px;
   color: #FFFFFF;
 
@@ -176,7 +164,7 @@ button:disabled{
 }
 
 .box-2 button{
-  width: 80px;
+  width: 7rem;
   height: 25px;
   background: #7695EC;
   border: none;
@@ -185,7 +173,7 @@ button:disabled{
   text-transform: uppercase;
   cursor: pointer;
   margin-top: 2px;
-  margin-left: 220px;
+  margin-left: 32.5rem;
 }
 
 .box-2 button:disabled{

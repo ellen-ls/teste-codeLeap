@@ -20,11 +20,12 @@ const Login = ()=>{
 
     return(
       (logged ? <Create/>:
-      <form className="rectangle" onSubmit={handleSubmit}>
-        <div className="box">
+      <div className="login">
+      <form className="login__form" onSubmit={handleSubmit}>
         <h2>Welcome to CodeLeap network!</h2>
         <h4>Please enter your username</h4>
-        <input 
+        <input
+        className="username" 
         value={login} 
         onInput={onInput} 
         onChange={(event)=>setLogin(event.target.value)}
@@ -33,9 +34,11 @@ const Login = ()=>{
         disabled={!login} 
         >Submit
         </button>
+        </form>
         </div>
+        
 
-      </form>
+      
    
     )
     )
