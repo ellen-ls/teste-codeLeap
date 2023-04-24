@@ -1,12 +1,27 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { FaEdit, FaTrash } from "react-icons/fa"
+import Modal from "./Modal"
 
 
 const Read = () => {
   const [getText, setGetText] = useState([])
+  const [edit, setEdit] = useState(null)
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleSubmit = (newPost) =>{
+    edit === null?
+ setGetText([...getText, newPost]):
+ setGetText(getText.map((current,id)=>{
+  if(id !== edit) return current
+  return newPost
+  
+
+}))
  
- 
+  }
+
+
   const handleCreate = () => {
     axios.get("https://dev.codeleap.co.uk/careers/")
       .then((response) => {
@@ -17,19 +32,12 @@ const Read = () => {
 
   const handleUpdate = async (id) => {
 
-    try {
-      const response = await axios.patch(`https://dev.codeleap.co.uk/careers/${id}/`, {
-   
-       getText:id.getText
+    await axios.patch(`https://dev.codeleap.co.uk/careers/${id}/`)
 
-      })
-      console.log(response.data)
-     setGetText()
+    setEdit(id)
+    setIsOpen(true)
+    console.log(id)
 
-
-    } catch (error) {
-      console.log(error)
-    }
   }
 
   const handleDelete = (id) => {
@@ -38,6 +46,7 @@ const Read = () => {
         handleCreate()
       })
   }
+
 
   useEffect(() => {
     handleCreate()
@@ -48,12 +57,16 @@ const Read = () => {
     <div>
 
       <div>
+        {isOpen && <Modal closeModal={setIsOpen} onSubmit={handleSubmit} defaultValue={edit !== null && getText[edit]} />}
         {getText && getText.map((text, index) => {
+
           return (
             <div key={index} className="box-2">
               <div className="header-two">{text.title}
-                <button className="fa" onClick={() => handleUpdate(text.id)}><FaEdit /></button>
+                <button className="fa" onClick={() => handleUpdate(text.id)}><FaEdit/></button>
+
                 <button className="fa" onClick={() => { if (window.confirm('Are you sure you want to delete this item?')) { handleDelete(text.id) } }}><FaTrash /></button>
+
               </div>
               <div className="name-user">
                 <p>@{text.username}</p>
