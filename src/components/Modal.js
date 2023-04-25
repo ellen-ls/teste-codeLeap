@@ -11,36 +11,40 @@ const Modal = ({closeModal,onSubmit, defaultValue}) => {
     })
     }
 
-    const validateForm = ()=>{
-        if(formState.title && formState.content){
-            return true
-        }else{
-            return false
-        }
-    }
-
-    const handleSubmit = (e)=>{
-        e.preventDefault()
-        if(!validateForm()) return
-
-
+    const handleSubmit = ()=>{
+                
         onSubmit(formState)
         closeModal()
     }
   return (
-    <div className='modalBackground' onSubmit={onSubmit}>
-     <div className='modalContainer'>
-        <div className='title'>
-            <input placeholder='edit text' name='title' value={formState.title} onChange={handleChange}></input>
-        </div>
-        <div className='content'>
-            <input placeholder='edit content' name='content' value={formState.content} onChange={handleChange}></input>
-        </div>
-        <button onClick={()=>closeModal(false)}>Cancel</button>
-        <button onClick={()=>handleSubmit}>confirm</button>
-     </div>
-    </div>
-  )
-}
+    
+        <form className='modalBackground' onSubmit={onSubmit}>
+            <div className='modalContainer'>
+                <h2>Edit Item</h2>
+                <div className='title'>
+                    <p>Title</p>
+                    <input
+                    placeholder='New title'
+                    value={formState.title}
+                    onChange={handleChange}
+                    name='title'
+                    />
+                </div>
+                <div className='content'>
+                    <p>Content</p>
+                    <input
+                    placeholder='New content'
+                    value={formState.content}
+                    onChange={handleChange}
+                    name='content'
+                     />
+                </div>
+                <button onClick={(()=>{closeModal(false)})}>Cancel</button>
+                <button onClick={()=>handleSubmit}>Save</button>
+               
+            </div>
+        </form>
+      )
+    }
 
 export default Modal

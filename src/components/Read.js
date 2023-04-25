@@ -9,34 +9,26 @@ const Read = () => {
   const [edit, setEdit] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
 
-  const handleSubmit = (newPost) =>{
-    edit === null?
- setGetText([...getText, newPost]):
- setGetText(getText.map((current,id)=>{
-  if(id !== edit) return current
-  return newPost
-  
-
-}))
- 
-  }
-
-
   const handleCreate = () => {
     axios.get("https://dev.codeleap.co.uk/careers/")
       .then((response) => {
         setGetText(response.data.results)
       })
-
   }
 
   const handleUpdate = async (id) => {
 
-    await axios.patch(`https://dev.codeleap.co.uk/careers/${id}/`)
+    try {
+      const response = await axios.patch(`https://dev.codeleap.co.uk/careers/${id}/`, ...getText)
+      console.log(response.data)
+      setEdit(response.data)
+      setIsOpen(true)
 
-    setEdit(id)
-    setIsOpen(true)
-    console.log(id)
+
+    } catch (error) {
+      console.log(error)
+    }
+
 
   }
 
@@ -57,13 +49,20 @@ const Read = () => {
     <div>
 
       <div>
-        {isOpen && <Modal closeModal={setIsOpen} onSubmit={handleSubmit} defaultValue={edit !== null && getText[edit]} />}
+
         {getText && getText.map((text, index) => {
 
           return (
             <div key={index} className="box-2">
               <div className="header-two">{text.title}
                 <button className="fa" onClick={() => handleUpdate(text.id)}><FaEdit/></button>
+                {isOpen && <Modal
+                  closeModal={()=>
+                    {setIsOpen(false) 
+                    setEdit(null)
+                  }}
+                  onSubmit={handleUpdate}
+                  defaultValue={edit !== null && getText[edit]} />}
 
                 <button className="fa" onClick={() => { if (window.confirm('Are you sure you want to delete this item?')) { handleDelete(text.id) } }}><FaTrash /></button>
 
