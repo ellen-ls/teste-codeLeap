@@ -28,8 +28,6 @@ const Read = () => {
     } catch (error) {
       console.log(error)
     }
-
-
   }
 
   const handleDelete = (id) => {

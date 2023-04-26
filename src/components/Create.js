@@ -1,14 +1,16 @@
 import axios from "axios"
-import React, { useEffect } from "react"
+import React from "react"
 import { useState } from "react"
 import Read from "./Read"
+import { useNavigate } from "react-router-dom"
 
 
 const Create = () => {
-
+  const navigate = useNavigate()
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
   const [username, setUsername] = useState(localStorage.getItem('user'))
+  
   
 
   const handleSubmit = async(e)=>{
@@ -33,7 +35,7 @@ const Create = () => {
   const onInput = (e) => setTitle(e.target.value)
   const handleLogout = () => {
     localStorage.clear()
-    window.location.reload()
+    navigate('/')
 
   }
 

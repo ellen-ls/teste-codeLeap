@@ -15,6 +15,7 @@ const Login = ()=>{
        
         localStorage.setItem('user', JSON.stringify(login).replace(/"/g, ''))
         setLogged(true)
+        navigate('/create')
    
     }
 
