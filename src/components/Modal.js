@@ -5,17 +5,19 @@ const Modal = ({closeModal,onSubmit, defaultValue}) => {
     const [formState, setFormState] = useState(defaultValue || {title:"", content:""})
 
    const handleChange = (e)=>{
+    
         setFormState({
         ...formState, 
         [e.target.name]:e.target.value
     })
     }
 
-    const handleSubmit = ()=>{
-                
+    const handleSubmit = (e)=>{
+        e.prevendDefault()       
         onSubmit(formState)
         closeModal()
     }
+    console.log(formState)
   return (
     
         <form className='modalBackground' onSubmit={onSubmit}>
