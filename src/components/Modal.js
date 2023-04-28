@@ -21,7 +21,7 @@ const Modal = ({closeModal,onSubmit, defaultValue}) => {
   return (
     
         <form className='modalBackground' onSubmit={onSubmit}>
-            <div className='modalContainer'>
+            <div className=modalBackground'>
                 <h2>Edit Item</h2>
                 <div className='title'>
                     <p>Title</p>

@@ -1,12 +1,16 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const Update = () => {
+const Update = ({onRequestClose}) => {
 
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
     const [id, setId] = useState([])
+    
+    const navigate = useNavigate()
 
+ 
     useEffect(()=>{
         setId(localStorage.getItem('id'))
         setTitle(localStorage.getItem('title'));
@@ -26,21 +30,18 @@ const Update = () => {
           setTitle('')
           setContent('')
           setId('')
+          onRequestClose()
           
         } catch (error) {
           console.log(error)
         }
       }
   return (
-
-    
-    <div>
-         <div className="div">
-         
-      </div>
-      <form className="box-2" onSubmit={handleSubmit}>
-            
-          <div>
+ 
+      <form className="modalBackground" onSubmit={handleSubmit}>
+      <div className='modalContainer'>
+                <h2>Edit Item</h2> 
+          <div className='title'>
           <p>Title</p>
           <input className="input-title"
             value={title}
@@ -48,7 +49,7 @@ const Update = () => {
             onChange={(e) => setTitle(e.target.value)}>
           </input>
           </div>
-          <div>
+          <div className='content'>
           <p>Content</p>
           <input className="input-content"
            value={content}
@@ -56,12 +57,11 @@ const Update = () => {
           </input>
           </div>
           <button disabled={!content} onClick={handleSubmit}>Update</button>
-
+          <button onClick={()=>navigate('/create')} >Close</button>
+         </div>
         </form>
-        <div>
-       
-        </div> 
-      </div>
+        
+      
    
   )
 }

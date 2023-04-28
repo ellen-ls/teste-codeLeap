@@ -6,10 +6,6 @@ import Read from './components/Read';
 import Update from './components/Update';
 
 
-
-
-
-
 function App() {
  
    return (

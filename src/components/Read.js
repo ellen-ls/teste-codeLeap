@@ -1,15 +1,25 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { FaEdit, FaTrash } from "react-icons/fa"
-import Modal from "./Modal"
+import Update from "./Update"
+import Modal from "react-modal"
 import { Link } from "react-router-dom"
+
+Modal.setAppElement('#root');
 
 
 const Read = () => {
 
   const [getText, setGetText] = useState([])
-  const [edit, setEdit] = useState(null)
-  const [isOpen, setIsOpen] = useState(false)
+  const [IsOpenModal, setIsOpenModal] = useState(false)
+
+  const openModal = ()=>{
+    setIsOpenModal(true)
+  }
+
+  const closeModal = ()=>{
+    setIsOpenModal(false)
+  }
 
 
   const handleCreate = () => {
@@ -24,22 +34,10 @@ const Read = () => {
     localStorage.setItem('id', id)
     localStorage.setItem('title', title)
     localStorage.setItem('content', content)
-
+    openModal()
+  
   }
 
-  // const handleUpdate = async (id) => {
-
-  //   try {
-  //     const response = await axios.patch(`https://dev.codeleap.co.uk/careers/${id}/`, ...getText)
-  //     console.log(response.data)
-  //     setEdit(response.data)
-  //     setIsOpen(true)
-
-
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
 
   const handleDelete = (id) => {
     axios.delete(`https://dev.codeleap.co.uk/careers/${id}/`)
@@ -47,7 +45,6 @@ const Read = () => {
         handleCreate()
       })
   }
-
 
   useEffect(() => {
     handleCreate()
@@ -64,16 +61,20 @@ const Read = () => {
           return (
             <div key={index} className="box-2">
               <div className="header-two">{text.title}
-                <Link to={'/update'}><button className="fa" onClick={() => setData(text)}><FaEdit/></button></Link>
-                {/* {isOpen && <Modal
-                  closeModal={()=>
-                    {setIsOpen(false) 
-                    setEdit(null)
-                  }}
-                  onSubmit={handleUpdate}
-                  defaultValue={edit !== null && getText[edit]} />} */}
+                 <button className="fa" onClick={()=>{setData(text)}}><FaEdit/></button>
+                
+                {IsOpenModal && <Update
+                isOpen={IsOpenModal}
+                onRequestClose={closeModal}
 
+                  
+                />}
+              
+                
                 <button className="fa" onClick={() => { if (window.confirm('Are you sure you want to delete this item?')) { handleDelete(text.id) } }}><FaTrash /></button>
+               
+                
+                
 
               </div>
               <div className="name-user">
