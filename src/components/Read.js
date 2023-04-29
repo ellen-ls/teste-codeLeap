@@ -63,7 +63,10 @@ const Read = () => {
 
           return (
             <div key={index} className="box-2">
-              <div className="header-two">{text.title}
+              <div className="header-two">
+                <div className="header-title">
+                {text.title}
+                </div>
               <div className="button-edit-delete">
               {text.username===localStorage.getItem('user')?<button className="fa" onClick={()=>{setData(text)}}><FaEdit/></button>:null}
                {isOpenModal && <Update

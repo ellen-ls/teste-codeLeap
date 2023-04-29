@@ -39,7 +39,7 @@ const Update = ({onRequestClose}) => {
       <div className='modalContainer'>
                 <h2>Edit Item</h2> 
           <div className='title'>
-          <p>Title</p>
+          <p className='names'>Title</p>
           <input className="input-title"
             value={title}
             
@@ -47,14 +47,16 @@ const Update = ({onRequestClose}) => {
           </input>
           </div>
           <div className='content'>
-          <p>Content</p>
+          <p className='names'>Content</p>
           <input className="input-content"
            value={content}
             onChange={(e) => setContent(e.target.value)}>
           </input>
           </div>
+          <div className='update'>
+          <button className='btn-update-cancel' onClick={()=>onRequestClose}>Cancel</button>
           <button className='btn-update' disabled={!content} onClick={handleSubmit}>Save</button>
-          <button className='btn-update-cancel' onClick={()=>onRequestClose} >Cancel</button>
+          </div>
          </div>
         </form>
         
