@@ -62,8 +62,8 @@ h4{
 button{
   margin-top: 10px;
   color: #FFFFFF;
-  width: 6rem;
-  height: 2rem;
+  width: 100px;
+  height: 32px;
   background: #7695EC;
   border-radius: 8px;
   margin-left: 10rem;
@@ -93,30 +93,18 @@ button:disabled{
 }
 
 .header-two{
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #7695EC;
-  height: 45px;
-  
+  height: 40px;
   font-size: 16px;
   color: #FFFFFF;
   border-radius: 8px, 8px, 0, 0;
 
 }
 
-.header button{
-  width: 80px;
-  height: 25px;
-  background: #7695EC;
-  border: none;
-  border-radius: 8px;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  cursor: pointer;
-  margin-top: 2px;
-  margin-left: 50px;
-  font-size: 12px;
-  font-weight: 700;
-}
+.button-edit-delete{}
 
 
 .box-2{
@@ -206,6 +194,7 @@ button:disabled{
   z-index:1;
   top: 0;
   left: 0;
+  color: #000000;
   
   
 }

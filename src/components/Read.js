@@ -2,16 +2,15 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { FaEdit, FaTrash } from "react-icons/fa"
 import Update from "./Update"
+import Delete from "./Delete"
 import Modal from "react-modal"
-import { Link } from "react-router-dom"
 
 Modal.setAppElement('#root');
-
 
 const Read = () => {
 
   const [getText, setGetText] = useState([])
-  const [IsOpenModal, setIsOpenModal] = useState(false)
+  const [isOpenModal, setIsOpenModal] = useState(false)
 
   const openModal = ()=>{
     setIsOpenModal(true)
@@ -38,12 +37,14 @@ const Read = () => {
   
   }
 
-
   const handleDelete = (id) => {
-    axios.delete(`https://dev.codeleap.co.uk/careers/${id}/`)
+    
+      axios.delete(`https://dev.codeleap.co.uk/careers/${id}/`)
+
       .then(() => {
         handleCreate()
-      })
+ })
+
   }
 
   useEffect(() => {
@@ -61,21 +62,20 @@ const Read = () => {
           return (
             <div key={index} className="box-2">
               <div className="header-two">{text.title}
-                 <button className="fa" onClick={()=>{setData(text)}}><FaEdit/></button>
-                
-                {IsOpenModal && <Update
-                isOpen={IsOpenModal}
+              <div className="button-edit-delete">
+              <button className="fa" onClick={()=>{setData(text)}}><FaEdit/></button>
+               {isOpenModal && <Update
+                isOpen={isOpenModal}
                 onRequestClose={closeModal}
 
-                  
                 />}
               
-                
-                <button className="fa" onClick={() => { if (window.confirm('Are you sure you want to delete this item?')) { handleDelete(text.id) } }}><FaTrash /></button>
-               
-                
-                
-
+            <button className="fa" onClick={() => {handleDelete(text.id)}}><FaTrash/></button>
+            <Delete
+            message={"Are you sure you want to delete this item?"}
+            />
+              </div>
+              
               </div>
               <div className="name-user">
                 <p>@{text.username}</p>
@@ -88,6 +88,7 @@ const Read = () => {
 
           )
         })}
+        
       </div>
     </div>
   )
