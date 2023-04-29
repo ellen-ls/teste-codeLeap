@@ -53,8 +53,8 @@ const Update = ({onRequestClose}) => {
             onChange={(e) => setContent(e.target.value)}>
           </input>
           </div>
-          <button disabled={!content} onClick={handleSubmit}>Update</button>
-          <button onClick={()=>onRequestClose} >Close</button>
+          <button className='btn-update' disabled={!content} onClick={handleSubmit}>Save</button>
+          <button className='btn-update-cancel' onClick={()=>onRequestClose} >Cancel</button>
          </div>
         </form>
         

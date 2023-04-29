@@ -11,6 +11,7 @@ const Read = () => {
 
   const [getText, setGetText] = useState([])
   const [isOpenModal, setIsOpenModal] = useState(false)
+  
 
   const openModal = ()=>{
     setIsOpenModal(true)
@@ -37,15 +38,16 @@ const Read = () => {
   
   }
 
+ 
   const handleDelete = (id) => {
-    
+    if(window.confirm("Are you sure you want to delete this item?")){
       axios.delete(`https://dev.codeleap.co.uk/careers/${id}/`)
-
       .then(() => {
         handleCreate()
- })
-
-  }
+      
+})
+}
+    }
 
   useEffect(() => {
     handleCreate()
@@ -63,17 +65,18 @@ const Read = () => {
             <div key={index} className="box-2">
               <div className="header-two">{text.title}
               <div className="button-edit-delete">
-              <button className="fa" onClick={()=>{setData(text)}}><FaEdit/></button>
+              {text.username===localStorage.getItem('user')?<button className="fa" onClick={()=>{setData(text)}}><FaEdit/></button>:null}
                {isOpenModal && <Update
                 isOpen={isOpenModal}
                 onRequestClose={closeModal}
 
                 />}
               
-            <button className="fa" onClick={() => {handleDelete(text.id)}}><FaTrash/></button>
-            <Delete
+            {text.username===localStorage.getItem('user')?<button className="fa" onClick={() => {handleDelete(text.id)}}><FaTrash/></button>:null}
+              {/* {showDelete && <Delete
+              handleClose={()=>handleDelete()}
             message={"Are you sure you want to delete this item?"}
-            />
+            />} */}
               </div>
               
               </div>

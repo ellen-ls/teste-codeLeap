@@ -13,10 +13,10 @@ const Create = () => {
   
   
 
-  const handleSubmit = async(e)=>{
-    e.preventDefault()
+  const handleSubmit = (e)=>{
+    
     try {
-      const response = await axios.post("https://dev.codeleap.co.uk/careers/",{
+      const response = axios.post("https://dev.codeleap.co.uk/careers/",{
         username,
         title,
         content
@@ -43,7 +43,7 @@ const Create = () => {
     <div className="div">
       <div className="header">
       <p>CodeLeap network</p>
-      <button onClick={handleLogout}>Logout</button>
+      <button className="btn-logout" onClick={handleLogout}>Logout</button>
       </div>
       <form className="box-2" onSubmit={handleSubmit}>
                
@@ -63,7 +63,7 @@ const Create = () => {
             onChange={(e) => setContent(e.target.value)}>
           </input>
           </div>
-          <button disabled={!content}>Create</button>
+          <button className="btn-create" disabled={!content}>Create</button>
 
         </form>
         <div>

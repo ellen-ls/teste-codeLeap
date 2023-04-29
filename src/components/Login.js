@@ -31,7 +31,7 @@ const Login = ()=>{
         onInput={onInput} 
         onChange={(event)=>setLogin(event.target.value)}
         />
-        <button 
+        <button  className="btn-login"
         disabled={!login} 
         >Submit
         </button>

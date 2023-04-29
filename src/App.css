@@ -59,20 +59,19 @@ h4{
   padding: 5px;
 }
 
-button{
+.btn-login{
   margin-top: 10px;
   color: #FFFFFF;
   width: 100px;
   height: 32px;
   background: #7695EC;
   border-radius: 8px;
-  margin-left: 10rem;
   cursor: pointer;
   border: none;
 
 }
 
-button:disabled{
+.btn-login:disabled{
   background: #777777;
   cursor: no-drop;
 }
@@ -104,7 +103,9 @@ button:disabled{
 
 }
 
-.button-edit-delete{}
+.button-edit-delete{
+  display: flex;
+}
 
 
 .box-2{
@@ -151,7 +152,7 @@ button:disabled{
 
 }
 
-.box-2 button{
+.btn-create{
   width: 7rem;
   height: 25px;
   background: #7695EC;
@@ -161,10 +162,10 @@ button:disabled{
   text-transform: uppercase;
   cursor: pointer;
   margin-top: 2px;
-  margin-left: 32.5rem;
+  
 }
 
-.box-2 button:disabled{
+.btn-create:disabled{
   background-color: #777777;
 }
 
@@ -178,7 +179,13 @@ button:disabled{
 }
 
 .fa{
-  margin-left: 300px;
+  display: flex;
+  justify-content: space-between;
+  background: #7695EC; 
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 12px;
 }
 
 /* ----Modal-----  */
@@ -234,3 +241,9 @@ button:disabled{
   cursor: pointer;
 }
 
+
+/* ------- Edit ------ */
+
+.btn-update{
+  background: rgb(16, 122, 87);
+}
